@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+$carrot-color: #e67e22;
+$black: #130f40;
+$white: #fff;
+$light-color:#666;
+$ligth-bg:#eee;
+$border: .2rem solid $black;
+$box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+
+@mixin grid($val){
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 1.5rem;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+
+    &::-webkit-scrollbar{
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background: $carrot-color;
+        border-radius: 5rem;
+    }
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 2.8rem;
+    border-radius: 5rem;
+    border-top-left-radius: 0;
+    border: $border;
+    cursor: pointer;
+    background: none;
+    color: $black;
+    font-size: 1.7rem;
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: $black;
+        z-index: -1;
+        transition: .2s linear;
+        clip-path: circle(0% at 0% 5%); /* parei em 22:19 */
+    }
+}
+
+.header{
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+    box-shadow: $box-shadow;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo{
+    font-size: 2.5rem;
+    color: $black;
+    font-weight: bolder;
+
+    i{
+        color:$carrot-color;
+    }
+}
+
+.navbar a{
+    margin: 0 1rem;
+    font-size: 1.7rem;
+    color: $light-color;
+
+    &:hover{
+        color: $carrot-color;
+    }
+}
+
+.icons a, .icons div{
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+    color: $black;
+    cursor: pointer;
+
+    &:hover{
+        color: $carrot-color;
+    }
+}
+
+.login-form{
+position: absolute;
+top: 120%;
+right:.2rem;
+width: 35rem;
+border-radius:1rem;
+background: $white;
+box-shadow: $box-shadow;
+padding: 2rem;
+
+h3{
+    color: $black;
+    font-size: 2.5rem;
+    padding-bottom: .5rem;
+}
+
+.box{
+    width: 100%;
+    border-bottom: $border;
+    border-width: .1rem;
+    padding: 1.5rem 0;
+    font-size: 1.6rem;
+    color: $black;
+    text-transform: none;
+    margin: 1rem 0;
+}
+
+.remember{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem 0;
+
+    label{
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: $light-color;
+    }
+}
+}
+
+#menu-btn{
+    display: none;
+}
