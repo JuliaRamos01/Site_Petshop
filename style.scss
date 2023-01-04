@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
-*{
+* {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -20,33 +20,42 @@ $ligth-bg:#eee;
 $border: .2rem solid $black;
 $box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
 
-@mixin grid($val){
+@mixin grid($val) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
     gap: 1.5rem;
 }
 
-html{
+@mixin form-btn {
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+        background: $black;
+    }
+}
+
+html {
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-padding-top: 4rem;
 
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
         width: 1rem;
     }
 
-    &::-webkit-scrollbar-track{
+    &::-webkit-scrollbar-track {
         background: transparent;
     }
 
-    &::-webkit-scrollbar-thumb{
+    &::-webkit-scrollbar-thumb {
         background: $carrot-color;
         border-radius: 5rem;
     }
 }
 
-.btn{
+.btn {
     display: inline-block;
     margin-top: 1rem;
     padding: .8rem 2.8rem;
@@ -61,7 +70,7 @@ html{
     z-index: 0;
     position: relative;
 
-    &::before{
+    &::before {
         content: '';
         position: absolute;
         top: 0;
@@ -71,11 +80,26 @@ html{
         background: $black;
         z-index: -1;
         transition: .2s linear;
-        clip-path: circle(0% at 0% 5%); /* parei em 22:19 */
+        clip-path: circle(0% at 0% 5%);
+    }
+
+    &:hover::before {
+        clip-path: circle(100%);
+    }
+
+    &:hover {
+        color: $white;
     }
 }
 
-.header{
+@keyframes fadeIn {
+    0% {
+        transform: translateY(3rem);
+        opacity: 0;
+    }
+}
+
+.header {
     background: $white;
     display: flex;
     align-items: center;
@@ -87,80 +111,166 @@ html{
     left: 0;
     right: 0;
     z-index: 1000;
-}
+    transform: translateY(-10rem);
 
-.logo{
-    font-size: 2.5rem;
-    color: $black;
-    font-weight: bolder;
-
-    i{
-        color:$carrot-color;
+    &.active{
+        transform: translateY(0rem);
     }
-}
 
-.navbar a{
-    margin: 0 1rem;
-    font-size: 1.7rem;
-    color: $light-color;
+    .logo {
+        font-size: 2.5rem;
+        color: $black;
+        font-weight: bolder;
 
-    &:hover{
-        color: $carrot-color;
+        i {
+            color: $carrot-color;
+        }
     }
-}
 
-.icons a, .icons div{
-    font-size: 2.5rem;
-    margin-left: 1.5rem;
-    color: $black;
-    cursor: pointer;
-
-    &:hover{
-        color: $carrot-color;
-    }
-}
-
-.login-form{
-position: absolute;
-top: 120%;
-right:.2rem;
-width: 35rem;
-border-radius:1rem;
-background: $white;
-box-shadow: $box-shadow;
-padding: 2rem;
-
-h3{
-    color: $black;
-    font-size: 2.5rem;
-    padding-bottom: .5rem;
-}
-
-.box{
-    width: 100%;
-    border-bottom: $border;
-    border-width: .1rem;
-    padding: 1.5rem 0;
-    font-size: 1.6rem;
-    color: $black;
-    text-transform: none;
-    margin: 1rem 0;
-}
-
-.remember{
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: 1rem 0;
-
-    label{
-        font-size: 1.5rem;
-        cursor: pointer;
+    .navbar a {
+        margin: 0 1rem;
+        font-size: 1.7rem;
         color: $light-color;
+
+        &:hover {
+            color: $carrot-color;
+        }
+    }
+
+    .icons a,
+    .icons div {
+        font-size: 2.5rem;
+        margin-left: 1.5rem;
+        color: $black;
+        cursor: pointer;
+
+        &:hover {
+            color: $carrot-color;
+        }
+    }
+
+    .login-form {
+        position: absolute;
+        top: 120%;
+        right: .2rem;
+        width: 35rem;
+        border-radius: 1rem;
+        background: $white;
+        box-shadow: $box-shadow;
+        padding: 2rem;
+        display: none;
+
+        &.active {
+            display: block;
+            animation: fadeIn .4s linear; /* verificar animação */
+        }
+
+        h3 {
+            color: $black;
+            font-size: 2.5rem;
+            padding-bottom: .5rem;
+        }
+
+        .box {
+            width: 100%;
+            border-bottom: $border;
+            border-width: .1rem;
+            padding: 1.5rem 0;
+            font-size: 1.6rem;
+            color: $black;
+            text-transform: none;
+            margin: 1rem 0;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: 1rem 0;
+
+            label {
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: $light-color;
+            }
+        }
+
+        .btn {
+            @include form-btn();
+            margin: 1.5rem 0;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+
+            a {
+                font-size: 1.4rem;
+                color: $carrot-color;
+
+                &:hover {
+                    color: $black;
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
+
+
+#menu-btn {
+    display: none;
 }
 
-#menu-btn{
-    display: none;
+
+/* media queries */
+
+@media (max-width: 991px){
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px){
+
+    #menu-btn{
+        display: inline-block;
+    }
+
+    .header{
+        .navbar{
+            position: absolute;
+            top: 99%;
+            left: 0;
+            right: 0;
+            background: $white;
+            clip-path: polygon(0 0, 100% 0, 0 0);
+
+            &.active{
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            a{
+                display: block;
+                margin: 2rem;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px){
+    html{
+        font-size: 50%;
+    }
+
+    .header .login-form{
+        width: 90%;
+    }
 }

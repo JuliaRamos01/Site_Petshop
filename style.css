@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 * {
   font-family: "Poppins", sans-serif;
@@ -54,9 +55,29 @@ html::-webkit-scrollbar-thumb {
   z-index: -1;
   transition: 0.2s linear;
   -webkit-clip-path: circle(0% at 0% 5%);
-          clip-path: circle(0% at 0% 5%); /* parei em 22:19 */
+          clip-path: circle(0% at 0% 5%);
+}
+.btn:hover::before {
+  -webkit-clip-path: circle(100%);
+          clip-path: circle(100%);
+}
+.btn:hover {
+  color: #fff;
 }
 
+@-webkit-keyframes fadeIn {
+  0% {
+    transform: translateY(3rem);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(3rem);
+    opacity: 0;
+  }
+}
 .header {
   background: #fff;
   display: flex;
@@ -69,37 +90,39 @@ html::-webkit-scrollbar-thumb {
   left: 0;
   right: 0;
   z-index: 1000;
+  transform: translateY(-10rem);
 }
-
-.logo {
+.header.active {
+  transform: translateY(0rem);
+}
+.header .logo {
   font-size: 2.5rem;
   color: #130f40;
   font-weight: bolder;
 }
-.logo i {
+.header .logo i {
   color: #e67e22;
 }
-
-.navbar a {
+.header .navbar a {
   margin: 0 1rem;
   font-size: 1.7rem;
   color: #666;
 }
-.navbar a:hover {
+.header .navbar a:hover {
   color: #e67e22;
 }
-
-.icons a, .icons div {
+.header .icons a,
+.header .icons div {
   font-size: 2.5rem;
   margin-left: 1.5rem;
   color: #130f40;
   cursor: pointer;
 }
-.icons a:hover, .icons div:hover {
+.header .icons a:hover,
+.header .icons div:hover {
   color: #e67e22;
 }
-
-.login-form {
+.header .login-form {
   position: absolute;
   top: 120%;
   right: 0.2rem;
@@ -108,13 +131,19 @@ html::-webkit-scrollbar-thumb {
   background: #fff;
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  display: none;
 }
-.login-form h3 {
+.header .login-form.active {
+  display: block;
+  -webkit-animation: fadeIn 0.4s linear;
+          animation: fadeIn 0.4s linear; /* verificar animação */
+}
+.header .login-form h3 {
   color: #130f40;
   font-size: 2.5rem;
   padding-bottom: 0.5rem;
 }
-.login-form .box {
+.header .login-form .box {
   width: 100%;
   border-bottom: 0.2rem solid #130f40;
   border-width: 0.1rem;
@@ -124,18 +153,81 @@ html::-webkit-scrollbar-thumb {
   text-transform: none;
   margin: 1rem 0;
 }
-.login-form .remember {
+.header .login-form .remember {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 0;
 }
-.login-form .remember label {
+.header .login-form .remember label {
   font-size: 1.5rem;
   cursor: pointer;
   color: #666;
 }
+.header .login-form .btn {
+  width: 100%;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.header .login-form .btn:hover {
+  background: #130f40;
+}
+.header .login-form .links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.header .login-form .links a {
+  font-size: 1.4rem;
+  color: #e67e22;
+}
+.header .login-form .links a:hover {
+  color: #130f40;
+  text-decoration: underline;
+}
 
 #menu-btn {
   display: none;
+}
+
+/* media queries */
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  .header {
+    padding: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  #menu-btn {
+    display: inline-block;
+  }
+  .header .navbar {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    -webkit-clip-path: polygon(0 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 0 0);
+  }
+  .header .navbar.active {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .header .navbar a {
+    display: block;
+    margin: 2rem;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+  .header .login-form {
+    width: 90%;
+  }
 }/*# sourceMappingURL=style.css.map */
