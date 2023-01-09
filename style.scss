@@ -39,11 +39,11 @@ $box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
     color: $white;
     border-color: $white;
 
-    &:hover{
+    &:hover {
         color: $black;
     }
 
-    &::before{
+    &::before {
         background: $white;
     }
 }
@@ -70,6 +70,17 @@ html {
 
 section {
     padding: 5rem 9%;
+}
+
+.heading{
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 3.5rem;
+    color: $black;
+
+    span{
+        color: $carrot-color;
+    }
 }
 
 .btn {
@@ -265,12 +276,12 @@ section {
             }
         }
 
-        .btn{
+        .btn {
             @include white-btn();
         }
     }
 
-    .wave{
+    .wave {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -279,37 +290,117 @@ section {
     }
 }
 
-.about{
+.about {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
 
-    .image{
+    .image {
         flex: 1 1 40rem;
 
-        img{
+        img {
             width: 100%;
         }
     }
 
-    .content{
+    .content {
         flex: 1 1 40rem;
 
-        h3{
+        h3 {
             color: $black;
             font-size: 4rem;
 
-            span{
+            span {
                 color: $carrot-color;
             }
         }
 
-        p{
+        p {
             font-size: 1.6rem;
             color: $light-color;
             padding: 1rem 0;
             line-height: 2;
+        }
+    }
+}
+
+.dog-food,
+.cat-food {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+
+    .image {
+        flex: 1 1 40rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content {
+        flex: 1 1 40rem;
+        text-align: center;
+        padding: 2rem;
+
+        h3 {
+            font-size: 3.5rem;
+            color: $black;
+
+            span {
+                color: $carrot-color;
+            }
+        }
+
+        p {
+            padding: 1rem 0;
+            line-height: 2;
+            color: $light-color;
+            font-size: 1.5rem;
+        }
+
+        .amount {
+            font-size: 3.5rem;
+            color: $black;
+            padding: 5rem 0;
+        }
+
+        a {
+            img {
+                height: 15rem;
+                margin-top: 1rem;
+            }
+
+            &:hover img {
+                transform: rotate(15deg);
+            }
+        }
+    }
+}
+
+.cat-food{
+    flex-wrap: wrap-reverse;
+}
+
+.shop .box-container{
+    @include grid(30rem);
+
+    .box{
+        position: relative;
+        overflow: hidden;
+
+        .image{
+            height: 45rem;
+            width: 100%;
+            overflow: hidden;
+
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
         }
     }
 }
@@ -329,15 +420,15 @@ section {
         padding: 5rem 2rem;
     }
 
-    .home{
+    .home {
         justify-content: center;
         background-position: right;
 
-        .content{
+        .content {
             text-align: center;
             padding-bottom: 5rem;
 
-            h3{
+            h3 {
                 font-size: 4.5rem;
             }
         }

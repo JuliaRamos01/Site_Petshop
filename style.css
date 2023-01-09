@@ -33,6 +33,16 @@ section {
   padding: 5rem 9%;
 }
 
+.heading {
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 3.5rem;
+  color: #130f40;
+}
+.heading span {
+  color: #e67e22;
+}
+
 .btn {
   display: inline-block;
   margin-top: 1rem;
@@ -262,6 +272,84 @@ section {
   color: #666;
   padding: 1rem 0;
   line-height: 2;
+}
+
+.dog-food,
+.cat-food {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+.dog-food .image,
+.cat-food .image {
+  flex: 1 1 40rem;
+}
+.dog-food .image img,
+.cat-food .image img {
+  width: 100%;
+}
+.dog-food .content,
+.cat-food .content {
+  flex: 1 1 40rem;
+  text-align: center;
+  padding: 2rem;
+}
+.dog-food .content h3,
+.cat-food .content h3 {
+  font-size: 3.5rem;
+  color: #130f40;
+}
+.dog-food .content h3 span,
+.cat-food .content h3 span {
+  color: #e67e22;
+}
+.dog-food .content p,
+.cat-food .content p {
+  padding: 1rem 0;
+  line-height: 2;
+  color: #666;
+  font-size: 1.5rem;
+}
+.dog-food .content .amount,
+.cat-food .content .amount {
+  font-size: 3.5rem;
+  color: #130f40;
+  padding: 5rem 0;
+}
+.dog-food .content a img,
+.cat-food .content a img {
+  height: 15rem;
+  margin-top: 1rem;
+}
+.dog-food .content a:hover img,
+.cat-food .content a:hover img {
+  transform: rotate(15deg);
+}
+
+.cat-food {
+  flex-wrap: wrap-reverse;
+}
+
+.shop .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+.shop .box-container .box {
+  position: relative;
+  overflow: hidden;
+}
+.shop .box-container .box .image {
+  height: 45rem;
+  width: 100%;
+  overflow: hidden;
+}
+.shop .box-container .box .image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /* media queries */
