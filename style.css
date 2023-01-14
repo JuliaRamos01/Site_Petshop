@@ -453,7 +453,113 @@ section {
 .plan .box-container .box .day {
   text-align: center;
   color: #130f40;
-  font-size: 3.5rem; /* parei em 1h12 */
+  font-size: 3.5rem;
+}
+.plan .box-container .box .icon {
+  color: #e67e22;
+  font-size: 5rem;
+  padding: 2rem 0;
+}
+.plan .box-container .box .list {
+  margin: 1rem 0;
+}
+.plan .box-container .box .list p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  color: #666;
+  padding: 1rem 0;
+}
+.plan .box-container .box .list p span {
+  color: #e67e22;
+}
+.plan .box-container .box .amount {
+  font-size: 5rem;
+  font-weight: bolder;
+  color: #130f40;
+}
+.plan .box-container .box .amount span {
+  font-size: 3rem;
+}
+
+.contact {
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.contact .image {
+  flex: 1 1 40rem;
+}
+.contact .image img {
+  width: 100%;
+}
+.contact form {
+  flex: 1 1 40rem;
+  padding: 2rem 7%;
+}
+.contact form .btn {
+  width: 100%;
+  text-align: center;
+}
+.contact form .btn:hover {
+  background: #130f40;
+}
+.contact form h3 {
+  font-size: 3rem;
+  padding-bottom: 1rem;
+  color: #130f40;
+}
+.contact form .box, .contact form textarea {
+  width: 100%;
+  border-bottom: 0.2rem solid #130f40;
+  border-width: 0.1rem;
+  font-size: 1.6rem;
+  text-transform: none;
+  color: #130f40;
+  padding: 1.5rem 0;
+  margin: 1rem 0;
+}
+.contact form textarea {
+  height: 15rem;
+  resize: none;
+}
+
+.footer {
+  position: relative;
+  background: url(./image/footer_background.jpg) no-repeat;
+  background-position: center;
+  background-size: center;
+  padding-top: 10rem;
+  padding-bottom: 2rem;
+}
+.footer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10rem;
+  width: 100%;
+}
+.footer .share {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer .share a {
+  color: #fff;
+  border-color: #fff;
+}
+.footer .share a:hover {
+  color: #130f40;
+}
+.footer .share a::before {
+  background: #fff;
+}
+.footer .share a i {
+  padding-right: 0.5rem;
 }
 
 /* media queries */
